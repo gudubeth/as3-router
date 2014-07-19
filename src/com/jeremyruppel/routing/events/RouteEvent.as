@@ -32,6 +32,8 @@ package com.jeremyruppel.routing.events
 		 */
 		public static const NOT_FOUND : String = 'RouteEvent.notFound';
 		
+		public var params:Object;
+		
 		//--------------------------------------
 		//  CONSTRUCTOR
 		//--------------------------------------
@@ -39,10 +41,10 @@ package com.jeremyruppel.routing.events
 		/**
 		 *	@constructor
 		 */
-		public function RouteEvent( type : String, route : IRoute, bubbles : Boolean = true, cancelable : Boolean = false )
+		public function RouteEvent( type : String, route : IRoute, params:Object, bubbles : Boolean = true, cancelable : Boolean = false )
 		{
 			super( type, bubbles, cancelable );
-			
+			this.params = params;
 			_route = route;
 		}
 	

@@ -64,7 +64,7 @@ package com.jeremyruppel.routing.core
 		 * 
 		 * @param route String
 		 */
-		function route( route : String ) : void;
+		function route( route : String, params:Object = null ) : void;
 		
 		//--------------------------------------
 		//  GETTER/SETTERS

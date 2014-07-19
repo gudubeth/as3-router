@@ -132,19 +132,19 @@ package com.jeremyruppel.routing.base
 		 * @inheritDoc
 		 * @param route String
 		 */
-		public function route( route : String ) : void
+		public function route( route : String, params:Object = null) : void
 		{
 			for each( var rule : IRule in rules )
 			{
 				if( rule.matches( route ) )
 				{
-					eventDispatcher.dispatchEvent( new RouteEvent( rule.eventType, rule.execute( route ) ) );
+					eventDispatcher.dispatchEvent( new RouteEvent( rule.eventType, rule.execute( route ), params ) );
 					
 					return;
 				}
 			}
 			
-			eventDispatcher.dispatchEvent( new RouteEvent( RouteEvent.NOT_FOUND, new Route( route ) ) );
+			eventDispatcher.dispatchEvent( new RouteEvent( RouteEvent.NOT_FOUND, new Route( route ), params ) );
 		}
 	
 	}
